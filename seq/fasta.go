@@ -25,7 +25,7 @@ func NewFastaReader(r io.Reader) *FastaReader {
 // Read reads one record from r. The record is a SeqRecord.
 func (r *FastaReader) Read() (seq *Sequence, err error) {
 	seq, err = r.parseRecord()
-	seq.Seq = strings.Replace(seq.Seq, " ", "", -1)
+	seq.Seq = bytes.Replace(seq.Seq, []byte(" "), []byte(""), -1)
 	return
 }
 
@@ -104,7 +104,7 @@ func (r *FastaReader) parseRecord() (seq *Sequence, err error) {
 	seq = &Sequence{
 		Id:          id,
 		Name:        desc,
-		Seq:         string(seqstr),
+		Seq:         seqstr,
 		Annotations: annotations,
 	}
 

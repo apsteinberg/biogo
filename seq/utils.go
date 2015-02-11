@@ -1,6 +1,6 @@
 package seq
 
-func Reverse(s string) string {
+func Reverse(s []byte) []byte {
 	bs := []byte{}
 	for i := 0; i < len(s); i++ {
 		bs = append(bs, s[i])
@@ -10,10 +10,10 @@ func Reverse(s string) string {
 		bs[i], bs[j] = bs[j], bs[i]
 	}
 
-	return string(bs)
+	return bs
 }
 
-func Complement(s string) string {
+func Complement(s []byte) []byte {
 	m := make(map[byte]byte)
 	m['A'] = 'T'
 	m['T'] = 'A'
@@ -24,5 +24,5 @@ func Complement(s string) string {
 		bs = append(bs, m[s[i]])
 	}
 
-	return string(bs)
+	return bs
 }

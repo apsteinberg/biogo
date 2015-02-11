@@ -2,6 +2,6 @@ package seq
 
 type Sequence struct {
 	Id, Name    string
-	Seq         string
+	Seq         []byte
 	Annotations map[string]string
 }
