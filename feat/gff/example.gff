@@ -1,0 +1,19 @@
+##gff-version 3
+#!gff-spec-version 1.21
+#!processor NCBI annotwriter
+#!genome-build ASM17477v1
+#!genome-build-accession NCBI_Assembly:GCA_000174775.1
+##sequence-region ACLR01000250.1 1 703
+##species http://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=596327
+ACLR01000250.1	Genbank	region	1	703	.	+	.	ID=id0;Dbxref=taxon:596327;gbkey=Src;genome=genomic;mol_type=genomic DNA;strain=60-3
+##sequence-region ACLR01000249.1 1 524
+##species http://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=596327
+ACLR01000249.1	Genbank	region	1	524	.	+	.	ID=id1;Dbxref=taxon:596327;gbkey=Src;genome=genomic;mol_type=genomic DNA;strain=60-3
+##sequence-region ACLR01000248.1 1 516
+##species http://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=596327
+ACLR01000248.1	Genbank	region	1	516	.	+	.	ID=id2;Dbxref=taxon:596327;gbkey=Src;genome=genomic;mol_type=genomic DNA;strain=60-3
+ACLR01000248.1	Genbank	gene	1	516	.	+	.	ID=gene0;Name=PORUE0001_1987;end_range=516,.;gbkey=Gene;gene_biotype=protein_coding;locus_tag=PORUE0001_1987;partial=true;start_range=.,1
+ACLR01000248.1	Genbank	CDS	1	516	.	+	1	ID=cds0;Parent=gene0;Dbxref=NCBI_GP:EEK15841.1;Name=EEK15841.1;Note=this gene contains a nucleotide ambiguity which may be the result of a sequencing error;end_range=516,.;gbkey=CDS;partial=true;product=ISPg5%2C transposase Orf2;protein_id=EEK15841.1;start_range=.,1;transl_table=11
+##sequence-region ACLR01000247.1 1 518
+##species http://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=596327
+ACLR01000247.1	Genbank	region	1	518	.	+	.	ID=id3;Dbxref=taxon:596327;gbkey=Src;genome=genomic;mol_type=genomic DNA;strain=60-3
