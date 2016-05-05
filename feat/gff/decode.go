@@ -29,7 +29,7 @@ func (r *Reader) Read() (*Record, error) {
 			return nil, err
 		}
 		l = strings.TrimSpace(l)
-		if l[0] != '#' && len(l) != 0 {
+		if len(l) != 0 && l[0] != '#' {
 			break
 		}
 	}
