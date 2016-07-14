@@ -2,16 +2,18 @@ package pileup
 
 import (
 	"bufio"
-	"bytes"
 	"io"
 	"strconv"
 	"strings"
+	"unicode"
 )
 
+// Reader is a reader to read samtools mpileup result.
 type Reader struct {
 	r *bufio.Reader
 }
 
+// NewReader returns a new pileup.Reader.
 func NewReader(r io.Reader) *Reader {
 	rd := Reader{
 		r: bufio.NewReader(r),
@@ -44,6 +46,8 @@ func parseLine(line string) *SNP {
 }
 
 func parseBases(s []byte, refBase byte) []byte {
+	upperRefBase := byte(unicode.ToUpper(rune(refBase)))
+	lowerRefBase := byte(unicode.ToLower(rune(refBase)))
 	bases := []byte{}
 	i := 0
 	for i < len(s) {
@@ -62,14 +66,16 @@ func parseBases(s []byte, refBase byte) []byte {
 			n := bytesToInt(v)
 			i = i + (k - i) + n
 		} else {
-			if b == '.' || b == ',' {
-				b = refBase
+			if b == '.' {
+				b = upperRefBase
+			} else if b == ',' {
+				b = lowerRefBase
 			}
 			bases = append(bases, b)
 			i++
 		}
 	}
-	return bytes.ToUpper(bases)
+	return bases
 }
 
 func bytesToInt(v []byte) int {
