@@ -59,6 +59,26 @@ func (r XMFAReader) Read() (alignment []Sequence, err error) {
 	return
 }
 
+// XMFAWriter is a writer to write sequences in XMFA format
+type XMFAWriter struct {
+	w *bufio.Writer
+}
+
+// NewXMFAWriter return a XMFAWriter
+func NewXMFAWriter(w io.Writer) *XMFAWriter {
+	bw := bufio.NewWriter(w)
+	return &XMFAWriter{w: bw}
+}
+
+// Write write a list of sequence.
+func (w *XMFAWriter) Write(sequences []Sequence) {
+	for _, s := range sequences {
+		w.w.WriteString(">" + s.Id + "\n")
+		w.w.WriteString(string(s.Seq) + "\n")
+	}
+	w.w.WriteString("=\n")
+}
+
 // ReadXMFA read sequences from XMFA file.
 func ReadXMFA(filename string) [][]*Sequence {
 	seqGroups := [][]*Sequence{}
