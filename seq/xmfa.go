@@ -77,6 +77,7 @@ func (w *XMFAWriter) Write(sequences []Sequence) {
 		w.w.WriteString(string(s.Seq) + "\n")
 	}
 	w.w.WriteString("=\n")
+	w.w.Flush()
 }
 
 // ReadXMFA read sequences from XMFA file.
