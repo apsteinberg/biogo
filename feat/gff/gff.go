@@ -54,3 +54,15 @@ func (r *Record) String() string {
 
 	return strings.Join(ss, "\t")
 }
+
+// ID return gene ID.
+func (r *Record) ID() string {
+	terms := strings.Split(r.Attribute, ";")
+	for _, t := range terms {
+		kv := strings.Split(t, "=")
+		if kv[0] == "ID" {
+			return kv[1]
+		}
+	}
+	return ""
+}
